@@ -1,4 +1,4 @@
-from map_base import MapBase
+from src.python_ed_fcad_uner.data_structures.maps_dicts_hash.map_base import MapBase
 from sorted_table_map_abstract import SortedTableMapAbstract
 from typing import Any, List, Generator
 

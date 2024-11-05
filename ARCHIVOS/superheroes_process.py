@@ -5,17 +5,14 @@ class superHeroesProcess:
     def __init__(self, filename):
         self.filename = filename
         self.heroes_count = 0
-        self.villains_count = 0
+        self.villanos_count = 0
         self.hash_map = ProbeHashMap()
 
     def process_file(self):
         pattern = r"(\w+)\((\w+)\)"
-        
         with open(self.filename, 'r') as file:
-            
             for line in file:
                 match = re.match(pattern, line.strip())
-                
                 if match:
                     entity_type, name = match.groups()
                     self.add_to_map(entity_type, name)
@@ -24,11 +21,11 @@ class superHeroesProcess:
         
         if entity_type == "super_heroe":
             self.heroes_count += 1
-            self.hash_map[name] = "Hero"
+            self.hash_map[name] = "Heroe"
             
         elif entity_type == "villano":
-            self.villains_count += 1
-            self.hash_map[name] = "Villain"
+            self.villanos_count += 1
+            self.hash_map[name] = "Villano"
 
     def get_counts(self):
-        return self.heroes_count, self.villains_count
+        return self.heroes_count, self.villanos_count
