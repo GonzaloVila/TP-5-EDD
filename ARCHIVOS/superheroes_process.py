@@ -9,21 +9,21 @@ class superHeroesProcess:
         self.hash_map = ProbeHashMap()
 
     def process_file(self):
-        pattern = r"(\w+)\((\w+)\)"
-        with open(self.filename, 'r') as file:
-            for line in file:
-                match = re.match(pattern, line.strip())
+        regex = r"(\w+)\((\w+)\)"
+        with open(self.filename, 'r') as archivo:
+            for linea in archivo:
+                match = re.match(regex, linea.strip())
                 if match:
-                    entity_type, name = match.groups()
-                    self.add_to_map(entity_type, name)
+                    tipo, name = match.groups()
+                    self.add_to_map(tipo, name)
 
-    def add_to_map(self, entity_type, name):
+    def add_to_map(self, tipo, name):
         
-        if entity_type == "super_heroe":
+        if tipo == "super_heroe":
             self.heroes_count += 1
             self.hash_map[name] = "Heroe"
             
-        elif entity_type == "villano":
+        elif tipo == "villano":
             self.villanos_count += 1
             self.hash_map[name] = "Villano"
 
